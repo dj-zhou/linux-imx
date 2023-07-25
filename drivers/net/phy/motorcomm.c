@@ -370,7 +370,7 @@ static int yt8521_config_init(struct phy_device *phydev)
 	phydev->irq = PHY_POLL;
 
 	ytphy_write_ext(phydev, 0xa000, 0);
-	ret = genphy_config_init(phydev);
+	ret = genphy_config_aneg(phydev);
 	if (ret < 0)
 		return ret;
 
@@ -655,7 +655,7 @@ static struct phy_driver ytphy_drvs[] = {
 		.name		= "YT8511 Gigabit Ethernet",
 		.phy_id_mask	= MOTORCOMM_PHY_ID_MASK,
 		.features	= PHY_GBIT_FEATURES,
-		.flags		= PHY_HAS_INTERRUPT,
+		.flags		= PHY_MAC_INTERRUPT,
 		.config_aneg	= genphy_config_aneg,
 #if GMAC_CLOCK_INPUT_NEEDED
 		.config_init	= yt8511_config_init,
@@ -670,7 +670,7 @@ static struct phy_driver ytphy_drvs[] = {
 		.name		= "YT8512 Ethernet",
 		.phy_id_mask	= MOTORCOMM_PHY_ID_MASK,
 		.features	= PHY_BASIC_FEATURES,
-		.flags		= PHY_HAS_INTERRUPT,
+		.flags		= PHY_MAC_INTERRUPT,
 		.config_aneg	= genphy_config_aneg,
 		.config_init	= yt8512_config_init,
 		.read_status	= yt8512_read_status,

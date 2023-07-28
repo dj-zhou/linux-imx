@@ -20,6 +20,8 @@
  */
 
 // https://github.com/cnxsoft/YT8521S
+// NOte: this file can compile, but the driver failed due to some MDIO error
+// will fix later
 
 #include <linux/kernel.h>
 #include <linux/module.h>

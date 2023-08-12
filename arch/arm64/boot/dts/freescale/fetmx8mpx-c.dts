@@ -671,7 +671,7 @@
 	codec: wm8960@1a {
 		compatible = "wlf,wm8960";
 		reg = <0x1a>;
-		clocks = <&audiomix_clk IMX8MP_CLK_AUDIO_BLK_CTRL_SAI3_MCLK1>;
+		clocks = <&audio_blk_ctrl IMX8MP_CLK_AUDIO_BLK_CTRL_SAI3_MCLK1>;
 		clock-names = "mclk";
 		wlf,shared-lrclk;
 		SPKVDD1-supply = <&reg_audio_pwr>;
@@ -681,7 +681,7 @@
 	codec_nau8822: nau8822@1a {
 		compatible = "nuvoton,nau8822";
 		reg = <0x1a>;
-		clocks = <&audiomix_clk IMX8MP_CLK_AUDIO_BLK_CTRL_SAI3_MCLK1>;
+		clocks = <&audio_blk_ctrl IMX8MP_CLK_AUDIO_BLK_CTRL_SAI3_MCLK1>;
 		clock-names = "mclk";
 		wlf,shared-lrclk;
 		SPKVDD1-supply = <&reg_audio_pwr>;

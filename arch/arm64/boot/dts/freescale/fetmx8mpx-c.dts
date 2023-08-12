@@ -1623,24 +1623,24 @@
     status = "okay";
 };
 
-&dewarp_0 {
-    status = "okay";
-};
+// &dewarp_0 {
+//     status = "okay";
+// };
 
 &dsp {
 	status = "okay";
 };
 
-&rpmsg{
-   /*
-    * 64K for one rpmsg instance:
-    * --0x55000000~0x5500ffff: pingpong
-    */
-   vdev-nums = <1>;
-   reg = <0x0 0x55000000 0x0 0x10000>;
-   memory-region = <&vdevbuffer>;
-   status = "okay";
-};
+// &rpmsg{
+//    /*
+//     * 64K for one rpmsg instance:
+//     * --0x55000000~0x5500ffff: pingpong
+//     */
+//    vdev-nums = <1>;
+//    reg = <0x0 0x55000000 0x0 0x10000>;
+//    memory-region = <&vdevbuffer>;
+//    status = "okay";
+// };
 
 &snvs_rtc {
 	/delete-node/ snvs-rtc-lp;

@@ -939,7 +939,7 @@
 //         dsim_to_mipi_panel: endpoint {
 //             remote-endpoint = <&mipi_panel_from_dsim>;
 //         };
-//     };
+//     }; 
 // };
 
 &easrc {

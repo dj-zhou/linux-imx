@@ -847,100 +847,100 @@
 };
 
 
-/ {
-	mipi_panel_uboot { //uboot ugly
-		compatible = "forlinx,panel";
-		reg = <0>;
-		pinctrl-names = "default";
-		pinctrl-0 = <&pinctrl_mipi_dsi_en>;
-		enable-gpio = <&gpio1 7 GPIO_ACTIVE_HIGH>;
-		panel-type = "mipi";
-		dsi-lanes = <4>;
-		video-mode = <2>;	/* 0: burst mode
-					 * 1: non-burst mode with sync event
-					 * 2: non-burst mode with sync pulse
-					 */
-		panel-width-mm = <68>;
-		panel-height-mm = <121>;
-		backlight = <&dsi_backlight>;
-		bmp-logo = "logo-1024x600.bmp";
-		status = "okay";
-		display-timings {
-			panel7_1024x600: timings {
-				hback-porch     = <160>;
-				hfront-porch    = <160>;
-				hactive                 = <1024>;
-				hsync-len               = <70>;
-				vback-porch     = <23>;
-				vfront-porch    = <12>;
-				vactive         = <600>;
-				vsync-len       = <10>;
-				clock-frequency = <45000000>;
-				vsync-active    = <0>;
-				hsync-active    = <0>;
-				de-active       = <0>;
-				pixelclk-active = <0>;
-			};
-		};
+// / {
+// 	mipi_panel_uboot { //uboot ugly
+// 		compatible = "forlinx,panel";
+// 		reg = <0>;
+// 		pinctrl-names = "default";
+// 		pinctrl-0 = <&pinctrl_mipi_dsi_en>;
+// 		enable-gpio = <&gpio1 7 GPIO_ACTIVE_HIGH>;
+// 		panel-type = "mipi";
+// 		dsi-lanes = <4>;
+// 		video-mode = <2>;	/* 0: burst mode
+// 					 * 1: non-burst mode with sync event
+// 					 * 2: non-burst mode with sync pulse
+// 					 */
+// 		panel-width-mm = <68>;
+// 		panel-height-mm = <121>;
+// 		backlight = <&dsi_backlight>;
+// 		bmp-logo = "logo-1024x600.bmp";
+// 		status = "okay";
+// 		display-timings {
+// 			panel7_1024x600: timings {
+// 				hback-porch     = <160>;
+// 				hfront-porch    = <160>;
+// 				hactive                 = <1024>;
+// 				hsync-len               = <70>;
+// 				vback-porch     = <23>;
+// 				vfront-porch    = <12>;
+// 				vactive         = <600>;
+// 				vsync-len       = <10>;
+// 				clock-frequency = <45000000>;
+// 				vsync-active    = <0>;
+// 				hsync-active    = <0>;
+// 				de-active       = <0>;
+// 				pixelclk-active = <0>;
+// 			};
+// 		};
 
-    	port {
-    	       mipi_panel_from_dsim: endpoint {
-    	           remote-endpoint = <&dsim_to_mipi_panel>;
-    	       };
-    	};
-	};
+//     	port {
+//     	       mipi_panel_from_dsim: endpoint {
+//     	           remote-endpoint = <&dsim_to_mipi_panel>;
+//     	       };
+//     	};
+// 	};
 
-	dsi_host: dsi-host { //uboot
-        compatible = "samsung,sec-mipi-dsi";
-        status = "okay";
-    };
-};
-&mipi_dsi {
-	status = "okay";
-	pmsreg = <0x8644>; 		//uboot
-    timing = <0x203>; 		//uboot
-    timing1 = <0x20d0803>; 	//uboot
-    timing2 = <0x030305>; 	//uboot
+// 	dsi_host: dsi-host { //uboot
+//         compatible = "samsung,sec-mipi-dsi";
+//         status = "okay";
+//     };
+// };
+// &mipi_dsi {
+// 	status = "okay";
+// 	pmsreg = <0x8644>; 		//uboot
+//     timing = <0x203>; 		//uboot
+//     timing1 = <0x20d0803>; 	//uboot
+//     timing2 = <0x030305>; 	//uboot
 
-	mipi_panel {//kernel
-		compatible = "forlinx,mipi-dsi";
-		pinctrl-names = "default";
-		pinctrl-0 = <&pinctrl_mipi_dsi_en>;
-		enable-gpio = <&gpio1 7 GPIO_ACTIVE_HIGH>;
-		reg = <0>;
-		dsi-lanes = <4>;
-		video-mode = <2>;	/* 0: burst mode
-					 * 1: non-burst mode with sync event
-					 * 2: non-burst mode with sync pulse
-					 */
-		panel-width-mm = <68>;
-		panel-height-mm = <121>;
-		backlight = <&dsi_backlight>;
-		status = "okay";
-		display-timings { //kernel
-			panel7_1024x600_kernel: timings {
-				hback-porch     = <160>;
-				hfront-porch    = <160>;
-				hactive                 = <1024>;
-				hsync-len               = <70>;
-				vback-porch     = <23>;
-				vfront-porch    = <12>;
-				vactive         = <600>;
-				vsync-len       = <10>;
-				clock-frequency = <45000000>;
-				vsync-active    = <0>;
-				hsync-active    = <0>;
-				de-active       = <0>;
-				pixelclk-active = <0>;
-			};
-		};
-	};
-    port@1 { //uboot or bridge
-        dsim_to_mipi_panel: endpoint {
-            remote-endpoint = <&mipi_panel_from_dsim>;
-        };
-    };
-};
+// 	mipi_panel {//kernel
+// 		compatible = "forlinx,mipi-dsi";
+// 		pinctrl-names = "default";
+// 		pinctrl-0 = <&pinctrl_mipi_dsi_en>;
+// 		enable-gpio = <&gpio1 7 GPIO_ACTIVE_HIGH>;
+// 		reg = <0>;
+// 		dsi-lanes = <4>;
+// 		video-mode = <2>;	/* 0: burst mode
+// 					 * 1: non-burst mode with sync event
+// 					 * 2: non-burst mode with sync pulse
+// 					 */
+// 		panel-width-mm = <68>;
+// 		panel-height-mm = <121>;
+// 		backlight = <&dsi_backlight>;
+// 		status = "okay";
+// 		display-timings { //kernel
+// 			panel7_1024x600_kernel: timings {
+// 				hback-porch     = <160>;
+// 				hfront-porch    = <160>;
+// 				hactive                 = <1024>;
+// 				hsync-len               = <70>;
+// 				vback-porch     = <23>;
+// 				vfront-porch    = <12>;
+// 				vactive         = <600>;
+// 				vsync-len       = <10>;
+// 				clock-frequency = <45000000>;
+// 				vsync-active    = <0>;
+// 				hsync-active    = <0>;
+// 				de-active       = <0>;
+// 				pixelclk-active = <0>;
+// 			};
+// 		};
+// 	};
+//     port@1 { //uboot or bridge
+//         dsim_to_mipi_panel: endpoint {
+//             remote-endpoint = <&mipi_panel_from_dsim>;
+//         };
+//     };
+// };
 
 &easrc {
 	fsl,asrc-rate  = <48000>;
@@ -1275,11 +1275,11 @@
 		>;
 	};
 
-	pinctrl_mipi_dsi_en: mipi_dsi_en {
-		fsl,pins = <
-			MX8MP_IOMUXC_GPIO1_IO07__GPIO1_IO07 0x16
-		>;
-	};
+	// pinctrl_mipi_dsi_en: mipi_dsi_en {
+	// 	fsl,pins = <
+	// 		MX8MP_IOMUXC_GPIO1_IO07__GPIO1_IO07 0x16
+	// 	>;
+	// };
 
     pinctrl_lvds_panel_en: lvds_panel_en {
         fsl,pins = <

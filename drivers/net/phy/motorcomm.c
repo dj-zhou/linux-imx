@@ -88,6 +88,6 @@ static struct phy_driver yt8521_driver[] = { {
 module_phy_driver(yt8521_driver);
 
 static struct mdio_device_id __maybe_unused
-	atheros_tbl[] = { { YT8521_PHY_ID, YT8521_PHY_ID_MASK }, {} };
+	motorcomm_tbl[] = { { YT8521_PHY_ID, YT8521_PHY_ID_MASK }, {} };
 
-MODULE_DEVICE_TABLE(mdio, atheros_tbl);
+MODULE_DEVICE_TABLE(mdio, motorcomm_tbl);

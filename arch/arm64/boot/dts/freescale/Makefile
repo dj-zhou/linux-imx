@@ -141,7 +141,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-var-som-symphony-2nd-ov5640.dtb \
 			  imx8mp-var-som-symphony-basler-isi0.dtb \
 			  imx8mp-var-dart-dt8mcustomboard-legacy-basler-isp0-m7.dtb \
 			  imx8mp-var-dart-dt8mcustomboard-basler-isp0-m7.dtb \
-			  fetmx8mpx-c.dtb \
+			  fetmx8mpx-c-v1-okmx8mpx-c-v2.dts \
 			  imx8mp-var-dart-dt8mcustomboard.dtb \
 			  imx8mp-var-dart-dt8mcustomboard-legacy-basler-isi0.dtb \
 			  imx8mp-var-dart-dt8mcustomboard-basler-isi0.dtb \

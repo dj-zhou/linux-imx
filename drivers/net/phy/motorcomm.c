@@ -5,6 +5,9 @@
  * Driver for Atheros 803x PHY
  *
  * Author: Matus Ujhelyi <ujhelyi.m@gmail.com>
+ * 
+ * this file is given by forlinx, with above content existed
+ * 
  */
 
 #include <linux/phy.h>

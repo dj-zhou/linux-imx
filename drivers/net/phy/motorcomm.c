@@ -5,6 +5,9 @@
  * Driver for Atheros 803x PHY
  *
  * Author: Matus Ujhelyi <ujhelyi.m@gmail.com>
+ * 
+ * this file is given by forlinx, with above content existed
+ * 
  */
 
 #include <linux/phy.h>
@@ -14,9 +17,7 @@
 #include <linux/etherdevice.h>
 #include <linux/of_gpio.h>
 #include <linux/gpio/consumer.h>
-
-#define YT8521_PHY_ID 0x0000011a
-#define YT8521_PHY_ID_MASK 0x00000fff
+#include <linux/motorcomm_phy.h>
 
 MODULE_DESCRIPTION("YT8521 PHY driver");
 MODULE_AUTHOR("machao");
@@ -69,9 +70,9 @@ static int yt8521_config_init(struct phy_device *phydev)
 }
 
 static struct phy_driver yt8521_driver[] = { {
-	.phy_id = YT8521_PHY_ID,
+	.phy_id = PHY_ID_YT8521,
 	.name = "YT8521 ethernet",
-	.phy_id_mask = YT8521_PHY_ID_MASK,
+	.phy_id_mask = MOTORCOMM_PHY_ID_MASK,
 	.probe = yt8521_probe,
 	.config_init = yt8521_config_init,
 	.soft_reset = genphy_soft_reset,
@@ -85,6 +86,6 @@ static struct phy_driver yt8521_driver[] = { {
 module_phy_driver(yt8521_driver);
 
 static struct mdio_device_id __maybe_unused
-	atheros_tbl[] = { { YT8521_PHY_ID, YT8521_PHY_ID_MASK }, {} };
+	motorcomm_tbl[] = { { PHY_ID_YT8521, MOTORCOMM_PHY_ID_MASK }, {} };
 
-MODULE_DEVICE_TABLE(mdio, atheros_tbl);
+MODULE_DEVICE_TABLE(mdio, motorcomm_tbl);
